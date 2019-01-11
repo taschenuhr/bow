@@ -1,7 +1,5 @@
 # Bow [![GoDoc](https://godoc.org/github.com/zippoxer/bow?status.svg)](https://godoc.org/github.com/zippoxer/bow)
 
-DEV BRANCH
-
 Bow is a minimal embedded database powered by Badger. 
 
 The mission of Bow is to provide a simple, fast and reliable way to persist structured data for projects that don't need an external database server such as PostgreSQL or MongoDB.
