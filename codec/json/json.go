@@ -3,7 +3,7 @@ package json
 import (
 	"encoding/json"
 
-	"github.com/zippoxer/bow/codec"
+	"github.com/altafino/bow/codec"
 )
 
 type Codec struct{}

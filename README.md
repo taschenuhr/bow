@@ -1,4 +1,4 @@
-# Bow [![GoDoc](https://godoc.org/github.com/zippoxer/bow?status.svg)](https://godoc.org/github.com/zippoxer/bow)
+# Bow [![GoDoc](https://godoc.org/github.com/altafino/bow?status.svg)](https://godoc.org/github.com/altafino/bow)
 
 Bow is a minimal embedded database powered by Badger. 
 
@@ -35,7 +35,7 @@ Bow is powered by [BadgerDB](https://github.com/dgraph-io/badger), implementing 
 ### Installing
 
 ```bash
-go get -u github.com/zippoxer/bow
+go get -u github.com/altafino/bow
 ```
 
 ### Opening a database
@@ -84,11 +84,11 @@ type Page struct {
 }
 ```
 
-Keys must be a string, a byte slice, any built-in integer or a type that implements [`codec.Marshaler`](https://godoc.org/github.com/zippoxer/bow/codec#Marshaler) and [`codec.Unmarshaler`](https://godoc.org/github.com/zippoxer/bow/codec#Unmarshaler).
+Keys must be a string, a byte slice, any built-in integer or a type that implements [`codec.Marshaler`](https://godoc.org/github.com/altafino/bow/codec#Marshaler) and [`codec.Unmarshaler`](https://godoc.org/github.com/altafino/bow/codec#Unmarshaler).
 
 #### Randomly generated keys
 
-[`Id`](https://godoc.org/github.com/zippoxer/bow#Id) is a convenient placeholder for Bow's randomly generated keys.
+[`Id`](https://godoc.org/github.com/altafino/bow#Id) is a convenient placeholder for Bow's randomly generated keys.
 
 ```go
 type Page struct {
@@ -185,7 +185,7 @@ msgp is a code generation tool and serialization library for [MessagePack](https
 
 * Replace any use of `bow.Id` in your structures with `string`. Since `bow.Id` is a `string`, you can convert between the two without any cost.
 
-* Import `github.com/zippoxer/bow/codec/msgp` and open a database with `msgp.Codec`:
+* Import `github.com/altafino/bow/codec/msgp` and open a database with `msgp.Codec`:
 ```go
 bow.Open("test", bow.SetCodec(msgp.Codec{}))
 ```
@@ -202,7 +202,7 @@ Bow's key-only iterator is a work in progress.
 
 ### Transactions
 
-Cross-bucket transactions are a work in progress. See branch [tx](https://github.com/zippoxer/bow/tree/tx).
+Cross-bucket transactions are a work in progress. See branch [tx](https://github.com/altafino/bow/tree/tx).
 
 ### Querying
 
@@ -233,7 +233,7 @@ Meanwhile, you can try [Storm](https://github.com/asdine/storm) if you want conv
 
 ## Performance
 
-Bow is nearly as fast as Badger, and in most cases faster than [Storm](https://github.com/asdine/storm). See [Go Database Benchmarks](https://github.com/zippoxer/go_database_bench).
+Bow is nearly as fast as Badger, and in most cases faster than [Storm](https://github.com/asdine/storm). See [Go Database Benchmarks](https://github.com/altafino/go_database_bench).
 
 ## Contributing
 
