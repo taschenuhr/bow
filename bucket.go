@@ -77,7 +77,12 @@ func (b *Bucket) Get(key interface{}, v interface{}) error {
 		if err != nil {
 			return err
 		}
-		value, err := item.Value()
+
+		value := make([]byte, 1024)
+		err = item.Value(func(v []byte) error {
+			value=v
+			return nil
+		})
 		if err != nil {
 			return err
 		}
@@ -102,7 +107,11 @@ func (b *Bucket) GetBytes(key interface{}, in []byte) (out []byte, err error) {
 		if err != nil {
 			return err
 		}
-		value, err := item.Value()
+		value := make([]byte, 1024)
+		err = item.Value(func(v []byte) error {
+			value=v
+			return nil
+		})
 		if err != nil {
 			return err
 		}

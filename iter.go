@@ -45,7 +45,11 @@ func (it *Iter) Next(result interface{}) bool {
 	}
 	item := it.it.Item()
 	ik := item.Key()
-	v, err := item.Value()
+	value := make([]byte, 1024)
+	err := item.Value(func(v []byte) error {
+		value=v
+		return nil
+	})
 	if err != nil {
 		it.err = err
 		return false
@@ -56,7 +60,7 @@ func (it *Iter) Next(result interface{}) bool {
 			return false
 		}
 	}
-	err = it.bucket.db.codec.Unmarshal(v, result)
+	err = it.bucket.db.codec.Unmarshal(value, result)
 	if err != nil {
 		it.err = err
 		return false
