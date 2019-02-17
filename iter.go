@@ -40,6 +40,7 @@ func (it *Iter) Next(result interface{}) bool {
 		it.it.Next()
 	}
 	if !it.it.ValidForPrefix(it.prefix) {
+		it.Close()
 		it.txn.Discard()
 		return false
 	}
@@ -47,7 +48,7 @@ func (it *Iter) Next(result interface{}) bool {
 	ik := item.Key()
 	value := make([]byte, 1024)
 	err := item.Value(func(v []byte) error {
-		value=v
+		value = v
 		return nil
 	})
 	if err != nil {
